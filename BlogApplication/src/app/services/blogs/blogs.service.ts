@@ -9,7 +9,7 @@ import {environment} from '../../environment';
 })
 export class BlogsService {
 
-  private apiUrl = `${environment.apiUrl}/blogs`;
+  private apiUrl = `${environment.backendUrl}/api/blogs`;
   http = inject(HttpClient);
 
   getAllBlogs(): Observable<Blog[]> {
@@ -31,5 +31,4 @@ export class BlogsService {
   deleteBlog(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
-
 }
