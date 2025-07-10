@@ -1,0 +1,19 @@
+.custom-dropdown {
+  background-color: #343a40;
+}
+
+.custom-dropdown .dropdown-item {
+  color: #fff;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #495057;
+  color: #fff;
+}
+
+.custom-carousel-icon {
+  filter: invert(100%);
+  background-color: black;
+  border-radius: 50%;
+  padding: 10px;
+}

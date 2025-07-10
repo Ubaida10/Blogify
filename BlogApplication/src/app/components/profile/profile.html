@@ -1,0 +1,112 @@
+<div class="container mt-4">
+  <h2>User Profile</h2>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <!-- First Name -->
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
+      <input
+        type="text"
+        id="firstName"
+        formControlName="firstName"
+        class="form-control"
+        placeholder="Enter first name"
+      />
+      @if(profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid){
+        <div class="text-danger">
+          First name is required.
+        </div>
+      }
+
+    </div>
+
+    <!-- Last Name -->
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+      <input
+        type="text"
+        id="lastName"
+        formControlName="lastName"
+        class="form-control"
+        placeholder="Enter last name"
+      />
+      @if(profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid){
+        <div class="text-danger">
+          Last name is required.
+        </div>
+      }
+
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="form-control"
+        placeholder="Enter email address"
+      />
+      @if(profileForm.get('email')?.touched && profileForm.get('email')?.invalid){
+        <div class="text-danger">
+          Valid email is required.
+        </div>
+      }
+    </div>
+
+    <!-- Date of Birth -->
+    <div class="mb-3">
+      <label for="dateOfBirth" class="form-label">Date of Birth <span class="text-danger">*</span></label>
+      <input
+        type="date"
+        id="dateOfBirth"
+        formControlName="dateOfBirth"
+        class="form-control"
+      />
+      @if(profileForm.get('dateOfBirth')?.touched && profileForm.get('dateOfBirth')?.invalid){
+        <div class="text-danger">
+          Date of birth is required.
+        </div>
+      }
+    </div>
+
+    <!-- Password -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="form-control"
+        placeholder="Enter password"
+      />
+      @if(profileForm.get('password')?.touched && profileForm.get('password')?.invalid){
+        <div class="text-danger">
+          Password must be at least 8 characters long.
+        </div>
+      }
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="d-flex gap-2">
+      <button
+        type="button"
+        class="btn btn-outline-secondary"
+        *ngIf="!isEditMode"
+        (click)="enableEdit()"
+      >
+        Edit
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        *ngIf="isEditMode"
+        [disabled]="profileForm.invalid"
+      >
+        Save Changes
+      </button>
+    </div>
+  </form>
+</div>
