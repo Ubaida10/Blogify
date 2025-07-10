@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import blogRoutes from "./Routes/blogRoutes.js";
+import userRoutes from "./Routes/userRoutes.js";
+
 
 dotenv.config({ path: './config.env' });
 const app = express();
@@ -10,7 +12,7 @@ app.use(express.json({limit: '50mb'}));
 app.use(cors());
 
 app.use('/api/blogs', blogRoutes);
-
+app.use('/api/users', userRoutes);
 
 
 

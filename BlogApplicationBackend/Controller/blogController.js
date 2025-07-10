@@ -1,6 +1,6 @@
 import Blog from '../Model/blogModel.js';
 
-// Helper to map MongoDB _id to id and format fields
+
 const mapBlog = (blog) => ({
     id: blog._id,
     title: blog.title,
