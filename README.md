@@ -14,8 +14,6 @@ A full-stack blogging platform with user authentication, built using Angular (fr
   - [Backend Setup](#backend-setup)
   - [Frontend Setup](#frontend-setup)
 - [API Endpoints](#api-endpoints)
-  - [User Authentication](#user-authentication)
-  - [Blog Posts](#blog-posts)
 - [Environment Variables](#environment-variables)
 - [License](#license)
 
@@ -23,19 +21,19 @@ A full-stack blogging platform with user authentication, built using Angular (fr
 
 ## Features
 
-- User registration and login with JWT authentication
-- Create, read, update, and delete blog posts
-- Password hashing for enhanced security
-- Responsive Angular UI
+* User registration and login (JWT authentication)
+* Create, read, update, and delete blog posts
+* Secure password hashing
+* Responsive Angular frontend
 
 ---
 
 ## Tech Stack
 
-- **Frontend:** Angular, TypeScript, HTML, CSS
-- **Backend:** Node.js, Express
-- **Database:** MongoDB
-- **Authentication:** JWT, bcrypt
+* **Frontend:** Angular, TypeScript, HTML, CSS
+* **Backend:** Node.js, Express, JavaScript
+* **Database:** MongoDB
+* **Authentication:** JWT, bcrypt
 
 ---
 
@@ -64,59 +62,58 @@ BlogApplication/
 
 ### Backend Setup
 
-1. **Navigate to the backend folder:**
-   ```bash
-   cd BlogApplicationBackend
-````
+1.  **Navigate to backend folder:**
 
-2. **Install dependencies:**
+    ```bash
+    cd BlogApplicationBackend
+    ```
 
-   ```bash
-   npm install
-   ```
+2.  **Install dependencies:**
 
-3. **Configure environment variables:**
+    ```bash
+    npm install
+    ```
 
-   * Create a `.env` or `config.env` file in the root of `BlogApplicationBackend` with the following content:
+3.  **Configure environment variables:**
+    * Create a `.env` file (or `config.env` if you prefer to keep that name as per your `dotenv` config) in the root of `BlogApplicationBackend`.
+    * Add the following variables:
 
-     ```env
-     PORT=4000
-     DB_URL=your_mongodb_connection_string
-     JWT_SECRET=yourSuperSecretKey
-     JWT_EXPIRATION=1h
-     ```
+    ```
+    PORT=4000
+    DB_URL=your_mongodb_connection_string
+    JWT_SECRET=yourSuperSecretKey
+    JWT_EXPIRATION=1h
+    ```
 
-4. **Start the backend server:**
+4.  **Start the backend server:**
 
-   ```bash
-   npm run dev
-   ```
+    ```bash
+    npm run dev
+    ```
 
-   The server will run at `http://localhost:4000`.
-
----
+    The server will be running on `http://localhost:4000`.
 
 ### Frontend Setup
 
-1. **Navigate to the frontend folder:**
+1.  **Navigate to frontend folder:**
 
-   ```bash
-   cd BlogApplicationFrontend
-   ```
+    ```bash
+    cd BlogApplicationFrontend
+    ```
 
-2. **Install dependencies:**
+2.  **Install dependencies:**
 
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 
-3. **Start the Angular development server:**
+3.  **Start the Angular app:**
 
-   ```bash
-   ng serve
-   ```
+    ```bash
+    ng serve
+    ```
 
-   The frontend will be available at `http://localhost:4200`.
+    The app will be running on `http://localhost:4200`.
 
 ---
 
@@ -125,49 +122,49 @@ BlogApplication/
 ### User Authentication
 
 * **Register:** `POST /api/users/register`
+    * **Body:**
 
-  * **Request Body:**
-
-    ```json
-    {
-      "email": "test@example.com",
-      "password": "yourPassword123",
-      "firstName": "John",
-      "lastName": "Doe",
-      "dateOfBirth": "1990-01-01"
-    }
-    ```
+        ```json
+        {
+          "email": "test@example.com",
+          "password": "yourPassword123",
+          "firstName": "John",
+          "lastName": "Doe",
+          "dateOfBirth": "1990-01-01"
+        }
+        ```
 
 * **Login:** `POST /api/users/login`
+    * **Body:**
 
-  * **Request Body:**
-
-    ```json
-    {
-      "email": "test@example.com",
-      "password": "yourPassword123"
-    }
-    ```
+        ```json
+        {
+          "email": "test@example.com",
+          "password": "yourPassword123"
+        }
+        ```
 
 ### Blog Posts
 
-* **Get all posts:** `GET /api/posts`
-* **Get single post:** `GET /api/posts/:id`
-* **Create a post:** `POST /api/posts` *(requires JWT)*
-* **Update a post:** `PUT /api/posts/:id` *(requires JWT)*
-* **Delete a post:** `DELETE /api/posts/:id` *(requires JWT)*
+* **Get all posts:** `GET /api/blogs`
+* **Get single post:** `GET /api/blogs/:id`
+* **Create post:** `POST /api/blogs` (requires JWT authentication in headers: `Authorization: Bearer <token>`)
+* **Update post:** `PUT /api/blogs/:id` (requires JWT authentication)
+* **Delete post:** `DELETE /api/blogs/:id` (requires JWT authentication)
 
 ---
 
 ## Environment Variables
 
-Example `config.env` or `.env` for the backend:
+Your `config.env` (or `.env`) file in the `BlogApplicationBackend` directory should contain:
 
-```env
+````
+
 PORT=4000
-DB_URL=your_mongodb_connection_string
-JWT_SECRET=yourSuperSecretKey
-JWT_EXPIRATION=1h
+DB\_URL=your\_mongodb\_connection\_string
+JWT\_SECRET=yourSuperSecretKey
+JWT\_EXPIRATION=1h
+
 ```
 
 ---
@@ -175,14 +172,4 @@ JWT_EXPIRATION=1h
 ## License
 
 This project is licensed under the MIT License.
-
-```
-
-### ✅ Key Improvements:
-- Fixed markdown indentation and spacing issues.
-- Corrected headings and added missing subheadings in the Table of Contents.
-- Ensured consistent formatting for code blocks and shell commands.
-- Used `.env` or `config.env` appropriately depending on naming conventions.
-
-Let me know if you also want badges, contributor sections, or deployment instructions added!
 ```
